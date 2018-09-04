@@ -22,8 +22,8 @@ namespace AspNetCoreTodo.Controllers
             };
             //meuTeste.Nome = "Zezinho";
 
-            return Redirect("http://www.univille.br");
-            return BadRequest("Isso nao deveria acontecer");
+            //return Redirect("http://www.univille.br");
+            //return BadRequest("Isso nao deveria acontecer");
             return View(meuTeste);
             //return Content("<h1> eu nao acredito</h1>");
         }
