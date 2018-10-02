@@ -43,8 +43,8 @@ namespace AspNetCoreTodo
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             
-            //services.AddSingleton<ITodoItemService,TodoItemService>();
-            services.AddTransient<ITodoItemService,TodoItemService>();
+            //services.AddSingleton<ITodoItemService,FakeTodoItemService>();
+            services.AddScoped<ITodoItemService,TodoItemService>();
             
         }
 

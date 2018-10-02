@@ -19,7 +19,7 @@ namespace AspNetCoreTodo.Services
         {
             //Select * from itens where itens.isdone = false
             return await _context.Items
-                    //.Where( x => x.IsDone == false)
+                    .Where( x => x.IsDone == false)
                     .ToArrayAsync();
         }
     }
