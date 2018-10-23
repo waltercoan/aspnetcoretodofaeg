@@ -26,5 +26,9 @@ namespace AspNetCoreTodo.Services
         {
             return false;
         }
+        public async Task<bool> MarkDoneAsync(Guid id)
+        {
+            return false;
+        }
     }
 }
