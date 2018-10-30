@@ -15,12 +15,22 @@ namespace AspNetCoreTodo.Services
         {
             _context = context;
         }
-        public async Task<TodoItem[]> GetIncompleteItemsAsync()
+
+        public async Task<TodoItem[]> GetIncompleteItemsAsync(ApplicationUser user)
         {
             //Select * from itens where itens.isdone = false
             return await _context.Items
-                    .Where( x => x.IsDone == false)
+                    .Where(x => user == null && x.IsDone == false)
+                    .Where(x => user != null && x.IsDone == false && x.UserId == user.Id)
                     .ToArrayAsync();
+        }
+        public async Task<TodoItem[]> GetIncompleteItemsAsync()
+        {
+            //Select * from itens where itens.isdone = false
+            /*return await _context.Items
+                    .Where( x => x.IsDone == false)
+                    .ToArrayAsync();*/
+            return await this.GetIncompleteItemsAsync(null);
         }
         public async Task<bool> AddItemAsync(TodoItem newItem)
         {
